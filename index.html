@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let Textarea = document.createElement('textarea')
+        // let p = document.createElement('p')
+
+        // Textarea.oninput = (e) => {
+        //     console.log(e.target.value)
+        //     localStorage.setItem('test', e.target.value)
+
+        // }
+        // p.innerHTML = localStorage.getItem('test')
+        // document.body.append(Textarea)
+        // document.body.append(p)
+const checkUser = () => {
+let emailValue = document.getElementById('email').value
+let passwordValue = document.getElementById('password').value
+console.log(emailValue)
+console.log(passwordValue)
+if(emailValue === 'manap' && passwordValue === 'manap23'){
+    alert('все ')
+    let user = {
+        email: emailValue,
+        password:passwordValue,
+    }
+localStorage.setItem('userValue', JSON.stringify(user))
+
+initLogin()
+
+}else{
+    alert('не все')
+}
+
+}
+
+let con = document.createElement('div')
+con.id = 'con'
+
+const renderLogin = () => {
+
+
+    let email = document.createElement('input')
+        email.id = 'email'
+        let password = document.createElement('input')
+password.id = 'password'
+        let passwordLabel = document.createElement('label')
+        passwordLabel.id = 'lal'
+        let emailLabel = document.createElement('label')
+        emailLabel.id = 'lab'
+
+
+        let p = document.createElement('p')
+        let userValue = localStorage.getItem('userValue')
+        p.innerHTML = userValue
+        console.log(userValue)
+        emailLabel.innerHTML = 'Enter email'
+        passwordLabel.innerHTML = 'Enter password'
+
+let button = document.createElement('button')
+button.id = 'but'
+button.innerHTML = 'Click'
+        document.body.append(con)
+        con.append(p)
+        con.append(emailLabel)
+        con.append(document.createElement('br'))
+        con.append(email)
+        con.append(document.createElement('br'))
+        con.append(passwordLabel)
+        con.append(document.createElement('br'))
+        con.append(password)
+        con.append(document.createElement('br'))
+
+        con.append(button)
+
+    button.addEventListener('click',checkUser)
+}
+// renderLogin()
+
+const ini = () => {
+    let butt = document.createElement('button')
+    let a = document.createElement('a')
+    a.id = 'a'
+    a.href = 'https://getbootstrap.com/docs/5.3/utilities/flex/'
+    a.innerHTML = "Salam"
+    butt.append(a)
+    let s = document.body.append(butt)
+    console.log(s)
+} 
+
+const initLogin = () =>{
+localStorage.getItem('userValue') ? ini() :renderLogin()
+    
+    
+}
+
+initLogin()
+
+
+
+
+
+
+    </script>
+</body>
+</html>
